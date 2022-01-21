@@ -4,5 +4,6 @@
 
 <%= simple_form_for(List.new) do |t| %>
   <%= t.input :name %>
+  <%= t.input :photo, as: :file %>
   <%= t.submit "Create new list"%>
 <% end %>
