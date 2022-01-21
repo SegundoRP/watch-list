@@ -1,0 +1,8 @@
+<br>
+<h1>Create a list </h1>
+<%= link_to "Back to lists", lists_path %>
+
+<%= simple_form_for(List.new) do |t| %>
+  <%= t.input :name %>
+  <%= t.submit "Create new list"%>
+<% end %>
