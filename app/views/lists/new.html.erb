@@ -1,9 +1,11 @@
-<br>
-<h1>Create a list </h1>
-<%= link_to "Back to lists", lists_path %>
+<div class="other-banner">
+  <h1>Añade una nueva lista</h1>
+</div>
 
-<%= simple_form_for(List.new) do |t| %>
-  <%= t.input :name %>
-  <%= t.input :photo, as: :file %>
-  <%= t.submit "Create new list"%>
-<% end %>
+<div class="container mt-1">
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name, label: "Nombre de la lista" %>
+    <%= f.input :photo, label: "Introduzca foto de la lista", as: :file %>
+    <%= f.submit "Crear lista", class: "btn btn-success mt-3" %>
+  <% end %>
+</div>

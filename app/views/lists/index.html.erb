@@ -1,18 +1,28 @@
-<br>
-<div>
-  <div></div>
-  <div>
-    <a href="">My lists</a>
-    <a href="">New list</a>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1595769816263-9b910be24d5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNpbmVtYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60);">
+  <div class="container">
+    <h1>The<strong> best movies</strong> that you will<strong> enjoy</strong>!</h1>
+    <p>Find the most acclaimed movies</p>
   </div>
 </div>
 
-<h1>My lists</h1>
-<%= link_to "Create a movie list", new_list_path %>
+<div class="d-flex justify-content-between align-items-center my-5 pt-5">
+  <h1 class="ml-3">My lists</h1>
+  <%= link_to "Create a movie list", new_list_path, class: 'btn btn-success mr-5' %>
+</div>
 
-<ul>
+<div class="cards-lists">
   <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-    <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="card-category ml-3 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key, height: 300, crop: :fill %>)">
+      <%= link_to list.name, list_path(list), class: "text-white" %>
+    </div>
   <% end %>
-</ul>
+</div>
+
+<%# dentro del each va el codigo que te paso por slack, leer el comentario dela vista show %>
+
+
+<%# <% @lists.each do |list| %>
+    <%# <%= link_to list.name, list_path(list) %>
+    <%# <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+<%# <% end %>
+<%# todo este codigo es porque el tag cl_image_top es para poner imagenes de cloudinary %>

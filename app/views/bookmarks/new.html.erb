@@ -4,6 +4,6 @@
 
 <%= simple_form_for [@list, @bookmark] do |t| %>
   <%= t.association :movie %>
-  <%= t.input :comment %>
+  <%= t.input :comment, label: "Comentario" %>
   <%= t.submit "Create bookmark"%>
 <% end %>
