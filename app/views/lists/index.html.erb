@@ -12,13 +12,13 @@
 
 <div class="cards-lists">
   <% @lists.each do |list| %>
-    <div class="card-category ml-3 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key, height: 300, crop: :fill %>)">
-      <%= link_to list.name, list_path(list), class: "text-white" %>
+    <div  class="card-category-main ml-3 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key, height: 300, crop: :fill %>)">
+      <%= link_to list.name, list_path(list), class: "card-category" %>
     </div>
   <% end %>
 </div>
 
-<%# dentro del each va el codigo que te paso por slack, leer el comentario dela vista show %>
+<%# dentro del each va el codigo que te paso por slack%>
 
 
 <%# <% @lists.each do |list| %>
@@ -26,3 +26,14 @@
     <%# <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
 <%# <% end %>
 <%# todo este codigo es porque el tag cl_image_top es para poner imagenes de cloudinary %>
+
+
+<%# esto es para cunado no ponen fotos se pone uno random %>
+<%# <% if list.photo.attached? %>
+    <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key, height: 300, crop: :fill %>
+      <%# <%= link_to list.name, list_path(list), class: "text-white" %>
+    <%# </div> %>
+  <%# <% else %>
+    <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1512070679279-8988d32161be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=738&q=80)"> %>
+      <%# <%= link_to list.name, list_path(list), class: "text-white" %>
+    <%# </div> %>
