@@ -1,5 +1,5 @@
 <br>
-<%= link_to "Back to movies", lists_path, class:"ml-3 btn btn-danger" %>
+<%= link_to "Back to movies", list_path(@list), class:"ml-3 btn btn-danger" %>
 <div class="container">
   <h1 class="text-center">Create a new bookmark</h1>
   <%= simple_form_for [@list, @bookmark] do |t| %>
