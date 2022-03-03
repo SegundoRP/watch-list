@@ -9,17 +9,19 @@
   <%= link_to "Add bookmark", new_list_bookmark_path(@list), class: 'btn btn-success mr-5' %>
 </div>
 
-<div class="cards-bookmark mx-5">
+<div class="cards-bookmark mx-5 mb-3">
   <% @list.bookmarks.each do |bookmark| %>
     <div class="card-trip mx-3">
       <img src=<%= bookmark.movie.poster_url %> />
       <div class="card-trip-infos">
         <div>
-          <h2><%= bookmark.movie.title %></h2>
+          <div class="card-trip-infos-top">
+            <h2><%= bookmark.movie.title %></h2>
+            <p><i class="fas fa-star"></i>&nbsp;<%= bookmark.movie.rating %></p>
+          </div>
           <p><%= bookmark.movie.overview %></p>
-          <p><%= bookmark.movie.rating %></p>
         </div>
-        <div class="card-trip-delete">
+        <div class="card-trip-delete mt-2">
           <%= bookmark.comment %>
           <%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: {confirm: 'Are you sure?'}, class:'text-danger'%>
         </div>

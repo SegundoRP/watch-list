@@ -1,9 +1,10 @@
 <br>
-<h1>Create a new bookmark</h1>
-<%= link_to "Back to movies", lists_path %>
-
-<%= simple_form_for [@list, @bookmark] do |t| %>
-  <%= t.association :movie %>
-  <%= t.input :comment, label: "Comentario" %>
-  <%= t.submit "Create bookmark"%>
-<% end %>
+<%= link_to "Back to movies", lists_path, class:"ml-3 btn btn-danger" %>
+<div class="container">
+  <h1 class="text-center">Create a new bookmark</h1>
+  <%= simple_form_for [@list, @bookmark] do |t| %>
+    <%= t.association :movie %>
+    <%= t.input :comment, label: "Comentario" %>
+    <%= t.submit "Create bookmark", class:"btn btn-success"%>
+  <% end %>
+</div>
