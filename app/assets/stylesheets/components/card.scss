@@ -58,15 +58,17 @@
 }
 .card-trip .card-trip-infos {
   padding: 16px;
-}.card-trip-delete{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.card-trip-delete{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .card-trip-infos-top{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   p{
     font-size: 16px;
   }

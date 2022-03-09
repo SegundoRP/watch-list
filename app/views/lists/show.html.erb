@@ -1,6 +1,7 @@
 <% content_for :meta_title, "#{@list.name} - #{DEFAULT_META["meta_product_name"]}" %>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>)">
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>)">
+  <a class='count-movies' href=""><%= @list.movies.count %> movies</a>
   <div class="container">
     <h1><%= @list.name %> movies</h1>
   </div>
@@ -23,7 +24,7 @@
           <p><%= bookmark.movie.overview %></p>
         </div>
         <div class="card-trip-delete mt-2">
-          <%= bookmark.comment %>
+          <span><i class="fas fa-quote-left"></i>&nbsp; <%= bookmark.comment %></span>
           <%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: {confirm: 'Are you sure?'}, class:'text-danger'%>
         </div>
       </div>
