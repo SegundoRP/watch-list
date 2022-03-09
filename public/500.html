@@ -2,65 +2,159 @@
 <html>
 <head>
   <title>We're sorry, but something went wrong (500)</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+  @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+        body{
+            margin:0px;
+            background-color: #FFa700 ;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+        canvas{ z-index: 2 ; }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+        .alfa{
+            position: absolute;
+            top:50%;
+            left:50%;
+            width:800px;
+            height:400px;
+            margin-left: -400px;
+            margin-top: -200px;
+            z-index: 1;
+        }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+        .n1{
+            position: absolute;
+            top:0px;
+            left:0px;
+            width:300px;
+            height:400px;
+        }
+
+        .n2{
+            position: absolute;
+            top:0px;
+            left:500px;
+            width:300px;
+            height:400px;
+        }
+
+        .n1 h1{
+            text-align: center;
+            margin-top:-25px;
+            font-size: 250pt;
+            color:#fff;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        .n2 h1{
+            text-align: center;
+            margin-top:35px;
+            font-size: 165pt;
+            color:#fff;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        .description{
+            position: absolute;
+            top:360px;
+            left:0px;
+            width:800px;
+            height:40px;
+        }
+
+        .description p {
+            text-align: center;
+            color: #fff;
+            font-family: 'PT Sans', sans-serif;
+            font-weight: 900;
+        }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+
+
+
+  </head>
+
+  <body>
+    <div class="alfa">
+
+      <div class="n1">
+        <h1>5</h1>
+      </div>
+      <div class="n2">
+        <h1>0</h1>
+      </div>
+      <div class="description">
+        <p>SERVER ERROR</p>
+      </div>
+
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
 </body>
+<script>
+  var fx, fy;
+
+    fx = window.innerWidth;
+    fy = window.innerHeight;
+
+    function setup() {
+
+      createCanvas(fx, fy, WEBGL);
+
+    }
+    function draw() {
+
+      background("rgba(0,0,0,.0)");
+
+      rotateY(frameCount * -0.03);
+
+      push();
+      normalMaterial();
+      fill("#888");
+      stroke("#eee");
+      translate(0, -100, 0);
+      box(200, 100, 150);
+      translate(0, 80, 0);
+      fill("#666");
+      box(200, 60, 150);
+      translate(0, 60, 0);
+      fill("#888");
+      box(200, 60, 150);
+      translate(0, 60, 0);
+      fill("#666");
+      box(200, 60, 150);
+      pop();
+      push();
+      normalMaterial();
+      fill("#222");
+      translate(103, -100, 0);
+      rotateY(1.579);
+      plane(120, 80);
+      pop();
+      push();
+      normalMaterial();
+      fill("#222");
+      translate(0, -20, 76);
+      plane(150, 20);
+      translate(0, 120, 0);
+      plane(150, 20);
+      pop();
+      push();
+      normalMaterial();
+      fill("#222");
+      translate(0, -20, -76);
+      plane(150, 20);
+      translate(0, 120, 0);
+      plane(150, 20);
+      pop();
+
+    }
+</script>
 </html>
