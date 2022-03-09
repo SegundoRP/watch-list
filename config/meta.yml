@@ -1,0 +1,5 @@
+meta_product_name: "Movie List"
+meta_title: "Movie list - Best movies"
+meta_description: "The best movies that you will enjoy"
+meta_image: "Webp.net-resizeimage.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

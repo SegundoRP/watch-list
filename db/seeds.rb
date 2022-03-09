@@ -16,10 +16,38 @@ movies["results"].each do |movie|
     new_movie["title"] = movie["original_title"]
     new_movie["overview"] = movie["overview"]
     new_movie["poster_url"] = "https://image.tmdb.org/t/p/w500/#{movie["poster_path"]}"
-    new_movie["rating"] = movie["vote_average"]
+    new_movie["rating"] = movie["vote_average"].to_f
     new_movie.save
   end
 end
+
+# url_now_playing = 'http://tmdb.lewagon.com/movie/now_playing'
+# url_popular = 'http://tmdb.lewagon.com/movie/popular'
+
+# now_playing = JSON.parse(URI.open(url_now_playing).read)
+# popular = JSON.parse(URI.open(url_popular).read)
+
+# now_playing['results'].each do |movie|
+#   if Movie.where(title: movie['title'])
+#     Movie.create(
+#       title: movie['title'],
+#       overview: movie['overview'],
+#       poster_url: "https://image.tmdb.org/t/p/original#{movie['poster_path']}",
+#       rating: movie['vote_average']
+#     )
+#   end
+# end
+
+# popular['results'].each do |movie|
+#   if Movie.where(title: movie['title'])
+#     Movie.create(
+#       title: movie['title'],
+#       overview: movie['overview'],
+#       poster_url: "https://image.tmdb.org/t/p/original#{movie['poster_path']}",
+#       rating: movie['vote_average']
+#     )
+#   end
+# end
 
 puts 'Seed finalizado'
 
