@@ -4,4 +4,12 @@
   color: white;
   font-size: 18px;
   border-radius: 8px;
+  position: absolute;
+  right: 1rem;
+  top: 5rem;
+
+  &:hover{
+  text-decoration: none;
+  color: white;
+  }
 }

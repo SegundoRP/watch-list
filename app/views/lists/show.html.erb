@@ -2,7 +2,7 @@
 
 <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>)">
   <a class='count-movies' href=""><%= @list.movies.count %> movies</a>
-  <div class="container">
+  <div class="container banner-list">
     <h1><%= @list.name %> movies</h1>
   </div>
 </div>
