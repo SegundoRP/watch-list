@@ -31,3 +31,21 @@
     </div>
   <% end %>
 </div>
+
+<div class="cards-bookmark">
+  <div>
+    <h3>Reviews</h3>
+    <% @list.reviews.each do |review| %>
+    <div><%= review.rating %></div>
+    <p><%= review.comment %></p>
+    <% end %>
+  </div>
+  <div>
+    <h4>Add your review</h4>
+    <%= simple_form_for(@review, url: list_reviews_path(@list)) do |r| %>
+      <%= r.input :comment, label: "Comment" %>
+      <%= r.input :rating, label: "Rating" %>
+      <%= r.submit "Add review", class:"btn btn-success" %>
+    <% end %>
+  </div>
+</div>
