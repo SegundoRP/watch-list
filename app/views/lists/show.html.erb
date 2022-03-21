@@ -32,8 +32,8 @@
   <% end %>
 </div>
 
-<div class="cards-bookmark">
-  <div>
+<div class="cards-bookmark mx-5 mb-3 mt-5">
+  <div class="ml-3">
     <h3>Reviews</h3>
     <% @list.reviews.each do |review| %>
     <div><%= review.rating %></div>
@@ -44,7 +44,7 @@
     <h4>Add your review</h4>
     <%= simple_form_for(@review, url: list_reviews_path(@list)) do |r| %>
       <%= r.input :comment, label: "Comment" %>
-      <%= r.input :rating, label: "Rating" %>
+      <%= r.input :rating, collection: (1..5).to_a,label: "Rating"%>
       <%= r.submit "Add review", class:"btn btn-success" %>
     <% end %>
   </div>
