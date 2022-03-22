@@ -14,6 +14,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 document.addEventListener("turbolinks:load", function() {
   initSelect2();
   initStarRating();
+  AOS.init();
 });
 
 Rails.start()
