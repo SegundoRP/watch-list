@@ -35,6 +35,8 @@
 <div class="cards-bookmark mx-5 mb-3 mt-5">
   <div class="ml-3">
     <h3>Reviews</h3>
+    <%= pluralize @list.reviews.size, "review" %>
+    <%# lo de arriba hace que si hay 0 reviews salga 0 review o 1 reviews y si es mas de 1 pluraliza la palabra %>
     <% if @list.reviews.empty? %>
        <small><em class="text-muted">Be the first one to review this list</em></small>
     <% end %>
@@ -50,7 +52,8 @@
   </div>
   <div>
     <h4>Add your review</h4>
-    <%= simple_form_for(@review, url: list_reviews_path(@list)) do |r| %>
+    <%= simple_form_for([@list, @review], remote: true) do |r| %>
+    <%# una solucion en vez de lo anidado de arriba es poner @review, url: list_reviews_path(@list) %>
       <%= r.input :comment, label: "Comment" %>
       <%= r.input :rating, collection: (1..5).to_a,label: "Rating"%>
       <%= r.submit "Add review", class:"btn btn-success" %>
