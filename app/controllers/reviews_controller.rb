@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @list = List.find(params[:list_id])
     @review.list = @list
     if @review.save
-      redirect_to list_path(@list)
+      redirect_to list_path(@list, anchor: "review-#{@review.id}")
     else
       render 'lists/show'
     end

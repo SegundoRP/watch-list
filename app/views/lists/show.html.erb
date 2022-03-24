@@ -46,7 +46,7 @@
         <i class="fas fa-star"></i>
       <% end %>
       <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-      <p><%= review.comment %></p>
+      <p id="review-<%= review.id %>"><%= review.comment %></p>
     </div>
     <% end %>
   </div>
