@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to list_path(@list)
     else
-      render list_path(@list)
+      render 'lists/show'
     end
   end
 
