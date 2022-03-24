@@ -34,5 +34,7 @@ module RailsWatchList
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
+  # esta linea hace que el formulario con remote true funcione asi el javascript este desactivado
 end
