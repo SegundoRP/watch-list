@@ -1,28 +1,35 @@
 <div class="container">
   <h1 class="text-center mt-4">Movies</h1>
   <div data-controller="search-movies">
-    <%= form_with url: "/movies", method: :get, html: { class: 'mt-3'} do |form| %>
-      <%= form.text_field :query, value: params[:query], placeholder: "Search a movie", class: "search-input-movie" %>
-      <%= form.button '<i class="fas fa-search"></i>'.html_safe, class: "btn" %>
+    <%= form_with url: "/movies", method: :get, html: { class: 'mt-3', data: { search_movies_target: 'form' } } do |form| %>
+      <%= form.text_field :query,
+                          value: params[:query],
+                          placeholder: "Search a movie",
+                          class: "search-input-movie",
+                          data: { search_movies_target: 'searchInput', action: 'keyup->search-movies#update'  } %>
+      <%# <%= form.button '<i class="fas fa-search"></i>'.html_safe, class: "btn" %>
+      <%# No lo puse porque con el stimulus el action es keyup sino tendria que poner submit en el button y ya no keyup %>
       <%# Alli en el boton debio ser form.submit pero no queria que salga texto por eso puse toda esa linea para que slaga el fontawesome %>
     <% end %>
 
-    <% if params[:query].blank? %>
-      <p><%= pluralize @movies.count, 'movie' %> available</p>
-    <% else %>
-      <p><%= pluralize @movies.count, 'result' %> for <code><%= params[:query] %></code></p>
-    <% end %>
-    <% @movies.each do |movie| %>
-    <div class="card-product">
-      <div class="img-card">
-      <%= image_tag movie.poster_url %>
+    <div data-search-movies-target = 'list'>
+      <% if params[:query].blank? %>
+        <p><%= pluralize @movies.count, 'movie' %> available</p>
+      <% else %>
+        <p><%= pluralize @movies.count, 'result' %> for <code><%= params[:query] %></code></p>
+      <% end %>
+      <% @movies.each do |movie| %>
+      <div class="card-product">
+        <div class="img-card">
+        <%= image_tag movie.poster_url %>
+        </div>
+        <div class="card-product-infos">
+          <h2><%= movie.title %></h2>
+          <p><%= movie.overview %></p>
+          <p><i class="fas fa-star"></i> <%= movie.rating %></p>
+        </div>
       </div>
-      <div class="card-product-infos">
-        <h2><%= movie.title %></h2>
-        <p><%= movie.overview %></p>
-        <p><i class="fas fa-star"></i> <%= movie.rating %></p>
-      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
