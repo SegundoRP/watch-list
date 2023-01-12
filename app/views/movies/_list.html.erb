@@ -1,0 +1,19 @@
+<div data-search-movies-target = 'list'>
+  <% if params[:query].blank? %>
+    <p><%= pluralize movies.count, 'movie' %> available</p>
+  <% else %>
+    <p><%= pluralize movies.count, 'result' %> for <code><%= params[:query] %></code></p>
+  <% end %>
+  <% movies.each do |movie| %>
+  <div class="card-product">
+    <div class="img-card">
+    <%= image_tag movie.poster_url %>
+    </div>
+    <div class="card-product-infos">
+      <h2><%= movie.title %></h2>
+      <p><%= movie.overview %></p>
+      <p><i class="fas fa-star"></i> <%= movie.rating %></p>
+    </div>
+  </div>
+  <% end %>
+</div>

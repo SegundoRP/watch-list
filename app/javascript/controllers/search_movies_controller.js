@@ -9,6 +9,13 @@ export default class extends Controller {
   //   console.log(this.listTarget)
   // }
   update(event) {
-  console.log(this.searchInputTarget.value)
+  // console.log(this.searchInputTarget.value)
+  const url = `${this.formTarget.action}?query=${this.searchInputTarget.value}`
+  fetch(url, {headers: { Accept: 'text/plain' } })
+    .then((response) => response.text())
+    .then((data) => {
+      this.listTarget.outerHTML = data;
+      // console.log(data)
+    })
   }
 }
